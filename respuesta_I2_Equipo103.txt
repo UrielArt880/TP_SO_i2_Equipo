@@ -1,9 +1,31 @@
 Arteaga Uriel
 Bernardez Lucas
-a-¿Cómo actualizo mi repositorio, al estado que esté el repo que hice FORK?
+a-¿Cómo actualizo mi repositorio, al estado que esté el repo que hice FORK? Primero uso git remote para que se actualice cuando hay un cambio, luego con el fetch descarga los cambios y por ultimo con merge los aplico a la respectiva carpeta
 b-¿Puede ALFA actualizar su FORK al estado del fork de GAMMA? Si
 c-¿Puede GAMMA actualizar su FORK al estado del fork de ALFA? Si
 d-¿Los datos que tenía en mi repositorio , editados por mi, se pierden si quiero actualizar
 el fork? Si
 e- realizar un listado, paso a paso ,de los comando necesarios para resolver este TP por
 orden de ejecución de los mismos junto con los apellidos y nombre de los alumnos
+
+beta crea repositorio con fork.txt
+
+-alfa
+git clone https://github.com/Lucasb006/TP_SO_i2_Equipo.git
+echo "Nombre: Lucas Bernardez / Ip: 1242345112 / Hora: 11:47am" >> fork.txt
+git add fork.txt
+git commit -m "resuestas alfa"
+git push
+
+-beta agrega los cambios con el merge desde GitHub
+-beta
+touch NuevoDato.txt
+touch respuesta_I2_Equipo103.txt
+echo "Arteaga Uriel" >> respuesta_I2_Equipo103.txt
+echo "Bernardez Lucas" >> respuesta_I2_Equipo103.txt
+echo "(consigna)" >> respuesta_I2_Equipo103.txt
+
+-alfa
+git remote add upstream https://github.com/UrielArt880/TP_SO_i2_Equipo.git
+git fetch upstream
+git merge upstream/main
